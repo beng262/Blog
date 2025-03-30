@@ -1,0 +1,391 @@
+/* light.css – Base (Light Mode) Styles */
+:root {
+  /* Overall page and header colors */
+  --primary-bg: #ffffff;       /* White background for light mode */
+  --header-bg: linear-gradient(90deg, #CDDAFD, #FAD2E1);
+  --header-item-bg: #DFE7FD1;
+  --header-item-text: #ffffff;
+  
+  /* Post card background colors (choose from your palette) */
+  --post-bg-color1: #FDEDF3;    /* light pink */
+  --post-bg-color2: #FAD2E1;      /* soft pink */
+  --post-bg-color3: #E7EFED;      /* light grey-green */
+  --post-bg-color4: #BEE1E6;      /* light blue */
+  --post-bg-color5: #DFE7FD;      /* very light blue */
+  --post-bg-color6: #CDDADF;      /* muted purple/blue */
+  --text-color: #ffffff;         /* Dark text on white background */
+  
+  /* Accent colors for buttons, overlays, etc. */
+  --accent1: #FAD2E1;
+  --accent2: #BEE1E6;
+  --accent3: #DFE7FD;
+  --accent4: #CDDADF;
+  --accent5: #517DF6;
+  --accent6: #CDDAFD;
+  --accent7: #8BA8F9;
+  --widget-bg: linear-gradient(90deg, #CDDAFD, #FAD2E1);
+  
+  --radius: 20px;
+  --transition: 0.3s ease;
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-color);
+  transition: background var(--transition), color var(--transition);
+  line-height: 1.6;
+}
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--text-color:);
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--header-bg);
+  padding: 10px 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  margin-bottom: 20px; /* Added bottom margin for spacing */
+}
+header .logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--text-color);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+nav ul li a {
+  background: var(--header-item-bg);
+  color: var(--header-item-text);
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  transition: background var(--transition);
+}
+nav ul li a:hover {
+  background: var(--accent6);
+}
+.toggle-dark {
+  background: var(--accent7);
+  border: none;
+  padding: 6px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform var(--transition);
+  color: var(--header-item-text);
+}
+.toggle-dark:hover {
+  transform: scale(1.05);
+}
+
+/* Main Container */
+.main-container {
+  max-width: 1200px;
+  margin: 140px auto 20px; /* extra top margin to accommodate featured gallery */
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 1024px) {
+  .main-container {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+/* Featured Gallery */
+#featuredGallery {
+  margin-top: 70px; /* Added top margin so it doesn't hide behind the header */
+  margin-bottom: 20px;
+}
+.gallery-slide {
+  position: relative;
+  display: none;
+}
+.gallery-slide img {
+  width: 100%;
+  max-height: 250px;  /* Reduced image height */
+  object-fit: cover;  /* Ensures the image covers the area without distortion */
+  border-radius: var(--radius);
+  filter: brightness(0.5);
+}
+.gallery-slide .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(253, 218, 225, 0.8);
+  padding: 20px;
+  border-radius: var(--radius);
+  text-align: center;
+}
+.gallery-nav {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent2);
+  border: none;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* Posts Section */
+.posts {
+  padding: 20px;
+}
+.posts article {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.posts article:not(:last-child) {
+  margin-bottom: 30px;
+}
+.posts h2 {
+  margin-bottom: 10px;
+}
+.meta {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+.meta .category-label {
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-right: 5px;
+  font-size: 0.8em;
+}
+.posts .content p {
+  margin-bottom: 10px;
+}
+.posts img.post-img {
+  width: 100%;
+  max-height: 150px;  /* Reduced image height for posts */
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin: 10px 0;
+}
+  .like-btn {
+    padding: 6px 10px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: transform var(--transition);
+    background-color: #F391B5; /* New color */
+    border: none;
+    color: #ffffff; /* White text */
+  }
+  .like-btn:hover {
+    background: #EF6C9C; 
+    transform: scale(1.1);
+  }
+  /* Copy Code Button */
+  .copy-btn {
+    margin-top: 5px;
+    padding: 6px 10px;
+    border-radius: var(--radius);
+    background: var(--accent2);
+    border: none;
+    cursor: pointer;
+    color: #ffffff; /* White text */
+    transition: background 0.3s, transform 0.2s;
+}
+
+.copy-btn:hover {
+  background: #A7D6DD; 
+  transform: scale(1.05);
+}
+
+
+/* Unique post backgrounds (classes applied to each article) */
+.post--color1 { background: var(--post-bg-color1); }
+.post--color2 { background: var(--post-bg-color2); }
+.post--color3 { background: var(--post-bg-color3); }
+.post--color4 { background: var(--post-bg-color4); }
+.post--color5 { background: var(--post-bg-color5); }
+.post--color6 { background: var(--post-bg-color6); }
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.widget {
+  background: var(--widget-bg);
+  padding: 15px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.widget h3 {
+  margin-bottom: 10px;
+}
+.widget ul {
+  list-style: none;
+  padding: 0;
+}
+.widget ul li {
+  margin-bottom: 8px;
+}
+.widget ul li a {
+  font-size: 0.95em;
+}
+.about-me {
+  text-align: center;
+}
+.about-me img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+.about-me p {
+  font-size: 0.9em;
+}
+
+/* Footer */
+footer {
+  background: var(--widget-bg);
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 40px;
+}
+footer a {
+  margin: 0 5px;
+}
+
+/* Modal for Portfolio Gallery (used on index) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-content {
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  padding: 20px;
+  width: 90%;
+  max-width: 900px;
+  border-radius: var(--radius);
+  position: relative;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  cursor: pointer;
+}
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.slider-media {
+  width: 100%;
+  height: 500px;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slider-media img,
+.slider-media video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  transition: opacity var(--transition);
+  z-index: 1;
+}
+.nav-button:hover { opacity: 0.8; }
+.nav-left { left: 10px; }
+.nav-right { right: 10px; }
+.thumbnail-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.thumbnail-gallery img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 2px solid var(--primary-bg);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform var(--transition), border-color var(--transition);
+}
+.thumbnail-gallery img:hover {
+  transform: scale(1.1);
+  border-color: var(--accent2);
+}
+.thumbnail-gallery img.active {
+  border-color: var(--accent2);
+  transform: scale(1.15);
+}
+
+/* Rating Stars for Recipes */
+.rating {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+.rating button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #ffffff;
+  transition: color 0.2s;
+}
+.rating button:hover,
+.rating button.active {
+  color: var(--accent5);
+}

@@ -1,0 +1,15 @@
+/* dark.css – Dark Mode Overrides */
+body.dark-mode {
+  .post {
+  background-color: var(--post-bg-default) !important;
+  }
+  --primary-bg: #1a252f;
+  --header-bg: linear-gradient(90deg, #1a252f, #34495e);
+  --header-item-bg: #1a252f;
+  --header-item-text: #ffffff;
+  --post-bg-default: #1f2a36;
+  --post-bg-1: #1f2a36;
+  --post-bg-2: #1f2a36;
+  --text-color: #ffffff;
+  --widget-bg: linear-gradient(90deg, #1a252f, #34495e);
+}
