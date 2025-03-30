@@ -152,7 +152,7 @@ nav ul li a:hover {
 
 /* Posts Section */
 .posts {
-  padding: 20px;
+  padding: 10px;
 }
 .posts article {
   margin-bottom: 30px;
@@ -181,7 +181,7 @@ nav ul li a:hover {
 }
 .posts img.post-img {
   width: 100%;
-  max-height: 150px;  /* Reduced image height for posts */
+  max-height: 300px;  /* Reduced image height for posts */
   object-fit: cover;
   border-radius: var(--radius);
   margin: 10px 0;
