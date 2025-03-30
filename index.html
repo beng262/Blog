@@ -3,11 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bengimini - Dev Projects</title>
+  <title>Bengimini - Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="light.css">
   <link rel="stylesheet" href="dark.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Override the dark mode toggle button color */
+    .toggle-dark {
+      background-color: #F17EA8 !important;
+    }
+    /* Add extra space (padding) between header and gallery slider */
+    #featuredGallery {
+      padding-top: 60px; /* Adjust this value as needed */
+      margin-top: 60px; /* Ensure the slider starts well below the header */
+    }
+    /* Adjust gallery images: make them smaller */
+    #featuredGallery .gallery-slide img {
+      width: 100%;
+      max-height: 200px;  /* Reduced from 300px */
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+    /* Adjust post images */
+    .post-img {
+      width: 100%;
+      max-height: 150px;  /* Reduced from 200px */
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -25,10 +49,46 @@
     </nav>
     <button class="toggle-dark" id="toggleDark">Dark Mode</button>
   </header>
-  
+
+  <!-- Featured Gallery (Slider) -->
+  <section id="featuredGallery">
+    <!-- Gallery Slide 1: Pets Post -->
+    <div class="gallery-slide">
+      <img src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.00.50.jpeg" alt="Pet Adventure">
+      <div class="overlay">
+        <h2>My Pets' Adventures</h2>
+        <p>Experience the joyful moments with my pets.</p>
+      </div>
+    </div>
+    <!-- Gallery Slide 2: Art Exhibition -->
+    <div class="gallery-slide">
+      <img src="https://assets.onecompiler.app/438dg3d7r/43d5w35zq/bengi-src-1533201409907.jpg" alt="Art Exhibition">
+      <div class="overlay">
+        <h2>My Art Exhibition</h2>
+        <p>Explore my latest art pieces from the exhibition.</p>
+      </div>
+    </div>
+    <!-- Gallery Slide 3: Pancakes Recipe -->
+    <div class="gallery-slide">
+      <img src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/pancake.jpg" alt="Pancakes Recipe">
+      <div class="overlay">
+        <h2>Delicious Pancakes Recipe</h2>
+        <p>Learn the secrets to fluffy and delicious pancakes.</p>
+      </div>
+    </div>
+    <!-- Circle Navigation Buttons (Centered) -->
+    <div style="text-align:center; margin-top:10px;">
+      <button class="gallery-nav" onclick="showSlide(0)"></button>
+      <button class="gallery-nav" onclick="showSlide(1)"></button>
+      <button class="gallery-nav" onclick="showSlide(2)"></button>
+    </div>
+  </section>
+
+  <!-- Main Container: Posts and Sidebar -->
   <div class="main-container">
-    <!-- Left Column: Dev Post -->
+    <!-- Left Column: All Posts -->
     <div class="posts">
+      <!-- Dev Post -->
       <article class="post post--color1" data-category="dev">
         <h2>My Latest Web App Project</h2>
         <div class="meta">
@@ -46,13 +106,115 @@
   &lt;p&gt;This is a sample code snippet.&lt;/p&gt;
 &lt;/div&gt;
           </pre>
-          <button onclick="copyCode(this, 'devCode')" class="copy-btn">Copy Code</button>
+          <button onclick="copyCode(this, 'devCode')" style="margin-top:5px; padding:6px 10px; border-radius: var(--radius); background: var(--accent2); border:none; cursor:pointer;">Copy Code</button>
+        </div>
+        <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
+      </article>
+      
+      <!-- Art Post -->
+      <article class="post post--color3" data-category="art">
+        <h2>My Art Exhibition</h2>
+        <div class="meta">
+          <span class="category-label">Art Projects</span>
+          <span>2025-03-27</span>
+        </div>
+        <div class="content">
+          <p>Discover my latest art pieces from the exhibition.</p>
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d5w35zq/bengi-src-1533201409907.jpg" alt="Art Exhibition">
+        </div>
+        <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
+      </article>
+      
+      <!-- Recipe Post 1: Pancakes -->
+      <article class="post post--color4" data-category="recipes">
+        <h2>Delicious Pancakes Recipe</h2>
+        <div class="meta">
+          <span class="category-label">Recipes</span>
+          <span>2025-03-26</span>
+        </div>
+        <div class="content">
+          <p>Learn how to make delicious, fluffy pancakes with this easy recipe!</p>
+          <h4>Ingredients:</h4>
+          <ul class="ingredients">
+            <li>1 cup flour</li>
+            <li>2 tbsp sugar</li>
+            <li>1 cup milk</li>
+            <li>1 egg</li>
+            <li>1 tsp baking powder</li>
+          </ul>
+          <h4>Instructions:</h4>
+          <ol class="instructions">
+            <li>Mix all ingredients together.</li>
+            <li>Pour batter onto a hot griddle.</li>
+            <li>Cook until bubbles form, then flip.</li>
+            <li>Serve with syrup and fruit.</li>
+          </ol>
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/pancake.jpg" alt="Pancakes">
+          <h4>To-Do Checklist for Pancakes:</h4>
+          <ul class="todo-list">
+            <li onclick="toggleDone(this)">Buy ingredients</li>
+            <li onclick="toggleDone(this)">Mix batter until smooth</li>
+            <li onclick="toggleDone(this)">Preheat griddle</li>
+            <li onclick="toggleDone(this)">Cook until golden</li>
+            <li onclick="toggleDone(this)">Plate & Serve</li>
+          </ul>
+        </div>
+        <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
+      </article>
+      
+      <!-- Recipe Post 2: Baklava -->
+      <article class="post post--color5" data-category="recipes">
+        <h2>Traditional Baklava Recipe</h2>
+        <div class="meta">
+          <span class="category-label">Recipes</span>
+          <span>2025-03-25</span>
+        </div>
+        <div class="content">
+          <p>Enjoy this classic baklava with layers of filo, nuts, and honey syrup.</p>
+          <h4>Ingredients:</h4>
+          <ul class="ingredients">
+            <li>Filo pastry</li>
+            <li>Mixed nuts</li>
+            <li>Butter</li>
+            <li>Sugar</li>
+            <li>Honey</li>
+          </ul>
+          <h4>Instructions:</h4>
+          <ol class="instructions">
+            <li>Layer the filo with butter and nuts.</li>
+            <li>Bake until golden and crispy.</li>
+            <li>Drizzle with honey syrup while warm.</li>
+          </ol>
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/BAKLAVA.jpg" alt="Baklava">
+          <h4>To-Do Checklist for Baklava:</h4>
+          <ul class="todo-list">
+            <li onclick="toggleDone(this)">Prepare nuts and filo</li>
+            <li onclick="toggleDone(this)">Layer ingredients</li>
+            <li onclick="toggleDone(this)">Bake until crisp</li>
+            <li onclick="toggleDone(this)">Drizzle with syrup</li>
+          </ul>
+        </div>
+        <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
+      </article>
+      
+      <!-- Pets Post -->
+      <article class="post post--color1" data-category="pets">
+        <h2>My Pets' Adventures</h2>
+        <div class="meta">
+          <span class="category-label">Pets</span>
+          <span>2025-03-25</span>
+        </div>
+        <div class="content">
+          <p>Enjoy these cute moments with my pets.</p>
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.00.50.jpeg" alt="Dog Loki">
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.01.39.jpeg" alt="Budgie Toto">
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.05.28.jpeg" alt="Loki with Golden">
         </div>
         <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
       </article>
     </div>
-    
-     <!-- Right Column: Sidebar -->
+
+    <!-- Right Column: Sidebar -->
     <aside class="sidebar">
       <div class="widget trending-posts">
         <h3>Trending Posts</h3>
@@ -99,5 +261,18 @@
   </footer>
 
   <script src="script.js"></script>
+  <!-- Override the like button functionality to allow only one like -->
+  <script>
+    function incrementLike(btn) {
+      if (btn.disabled) return;
+      const countSpan = btn.querySelector('.like-count');
+      let count = parseInt(countSpan.innerText);
+      count++;
+      countSpan.innerText = count;
+      btn.classList.add('animate-like');
+      btn.disabled = true;
+      setTimeout(() => { btn.classList.remove('animate-like'); }, 200);
+    }
+  </script>
 </body>
 </html>
