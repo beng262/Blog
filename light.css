@@ -182,7 +182,7 @@ nav ul li a:hover {
 .posts img.post-img {
   width: 100%;
   max-height: 300px;  /* Reduced image height for posts */
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius);
   margin: 10px 0;
 }
@@ -193,7 +193,7 @@ nav ul li a:hover {
     transition: transform var(--transition);
     background-color: #F391B5; /* New color */
     border: none;
-    color: #ffffff; /* White text */
+    color: var(--text-color) !important; /* White text */
   }
   .like-btn:hover {
     background: #EF6C9C; 
@@ -207,7 +207,7 @@ nav ul li a:hover {
     background: var(--accent2);
     border: none;
     cursor: pointer;
-    color: #ffffff; /* White text */
+    color: var(--text-color) !important; /* White text */
     transition: background 0.3s, transform 0.2s;
 }
 
