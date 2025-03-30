@@ -181,7 +181,7 @@ nav ul li a:hover {
 }
 .posts img.post-img {
   width: 100%;
-  max-height: 300px;  /* Reduced image height for posts */
+  max-height: 400px;  /* Reduced image height for posts */
   object-fit: contain;
   border-radius: var(--radius);
   margin: 10px 0;
