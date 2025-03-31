@@ -8,10 +8,6 @@
   <link rel="stylesheet" href="light.css">
   <link rel="stylesheet" href="dark.css">
   <style>
-    /* Override dark mode toggle button color */
-    .toggle-dark {
-      background-color: #F17EA8 !important;
-    }
     /* Space between fixed header and gallery */
     #featuredGallery {
       padding-top: 60px;
@@ -27,8 +23,8 @@
     /* Post images */
     .post-img {
       width: 100%;
-      max-height: 150px;
-      object-fit: cover;
+      max-height: 350px;
+      object-fit: contain;
       border-radius: var(--radius);
     }
     /* Copy code button style */
@@ -113,7 +109,7 @@
 
   <!-- Featured Gallery (Slider) -->
   <section id="featuredGallery">
-    <!-- Gallery Slide 1 -->
+    <!-- Gallery Slide 1: Pets Post -->
     <div class="gallery-slide">
       <img src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.00.50.jpeg" alt="Pet Adventure">
       <div class="overlay">
@@ -121,7 +117,7 @@
         <p>Experience the joyful moments with my pets.</p>
       </div>
     </div>
-    <!-- Gallery Slide 2 -->
+    <!-- Gallery Slide 2: Art Exhibition -->
     <div class="gallery-slide">
       <img src="https://assets.onecompiler.app/438dg3d7r/43d5w35zq/bengi-src-1533201409907.jpg" alt="Art Exhibition">
       <div class="overlay">
@@ -129,7 +125,7 @@
         <p>Explore my latest art pieces from the exhibition.</p>
       </div>
     </div>
-    <!-- Gallery Slide 3 -->
+    <!-- Gallery Slide 3: Pancakes Recipe -->
     <div class="gallery-slide">
       <img src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/pancake.jpg" alt="Pancakes Recipe">
       <div class="overlay">
@@ -137,7 +133,7 @@
         <p>Learn the secrets to fluffy and delicious pancakes.</p>
       </div>
     </div>
-    <!-- Gallery Navigation Buttons -->
+    <!-- Circle Navigation Buttons (Centered) -->
     <div style="text-align:center; margin-top:10px;">
       <button class="gallery-nav" onclick="showSlide(0)"></button>
       <button class="gallery-nav" onclick="showSlide(1)"></button>
