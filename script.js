@@ -30,7 +30,90 @@ function incrementLike(btn) {
   setTimeout(() => { btn.classList.remove('animate-like'); }, 200);
 }
 
+// Like Button for Posts
+function incrementLike(btn) {
+  if (btn.disabled) return;
+  const countSpan = btn.querySelector('.like-count');
+  let count = parseInt(countSpan.innerText);
+  count++;
+  countSpan.innerText = count;
+  btn.classList.add('animate-like');
+  btn.disabled = true;
+  setTimeout(() => { btn.classList.remove('animate-like'); }, 200);
+}
 
+// Copy Code Functionality
+function copyCode(btn, codeId) {
+  const codeElem = document.getElementById(codeId);
+  if (!codeElem) return;
+  navigator.clipboard.writeText(codeElem.innerText).then(() => {
+    btn.innerText = 'Copied!';
+    setTimeout(() => { btn.innerText = 'Copy Code'; }, 1500);
+  });
+}
+
+// Add Comment Functionality
+function addComment(e, form) {
+  e.preventDefault();
+  const commentText = form.comment.value.trim();
+  if (!commentText) return;
+  
+  // Create comment element
+  const commentDiv = document.createElement('div');
+  commentDiv.className = 'comment';
+  commentDiv.innerHTML = `
+    <p class="comment-text">${commentText}</p>
+    <button class="comment-like-btn" onclick="incrementCommentLike(this)">Like (<span class="comment-like-count">0</span>)</button>
+  `;
+  
+  // Append comment to the corresponding comments list (assumed to be in the same post)
+  const commentsList = form.parentElement.querySelector('.comments-list');
+  if (commentsList) {
+    commentsList.appendChild(commentDiv);
+  }
+  
+  form.reset();
+}
+
+// Like Button for Comments
+function incrementCommentLike(btn) {
+  if (btn.disabled) return;
+  const countSpan = btn.querySelector('.comment-like-count');
+  let count = parseInt(countSpan.innerText);
+  count++;
+  countSpan.innerText = count;
+  btn.disabled = true;
+}
+
+// Featured Gallery Auto-Slide
+let slideIndex = 0;
+function showSlide(index) {
+  const slides = document.querySelectorAll('.gallery-slide');
+  slides.forEach((slide, i) => {
+    slide.style.display = (i === index) ? 'block' : 'none';
+  });
+  slideIndex = index;
+}
+function autoSlide() {
+  const slides = document.querySelectorAll('.gallery-slide');
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+if (document.querySelectorAll('.gallery-slide').length > 0) {
+  showSlide(0);
+  setInterval(autoSlide, 5000);
+}
+
+// Dark mode toggle
+const toggleDark = document.getElementById('toggleDark');
+if (toggleDark) {
+  toggleDark.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDark);
+    toggleDark.innerText = isDark ? 'Light Mode' : 'Dark Mode';
+  });
+}
 // To-Do Checklist Toggle
 function toggleDone(item) {
   item.classList.toggle('done');
