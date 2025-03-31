@@ -8,30 +8,30 @@
   <link rel="stylesheet" href="light.css">
   <link rel="stylesheet" href="dark.css">
   <style>
-    /* Override the dark mode toggle button color */
+    /* Override dark mode toggle button color */
     .toggle-dark {
       background-color: #F17EA8 !important;
     }
-    /* Add extra space (padding) between header and gallery slider */
+    /* Space between fixed header and gallery */
     #featuredGallery {
       padding-top: 60px;
       margin-top: 60px;
     }
-    /* Adjust gallery images: make them smaller */
+    /* Gallery images smaller */
     #featuredGallery .gallery-slide img {
       width: 100%;
       max-height: 200px;
       object-fit: cover;
       border-radius: var(--radius);
     }
-    /* Adjust post images */
+    /* Post images */
     .post-img {
       width: 100%;
-      max-height: 350px;
-      object-fit: contain;
+      max-height: 150px;
+      object-fit: cover;
       border-radius: var(--radius);
     }
-    /* Updated Copy Code Button Style */
+    /* Copy code button style */
     .copy-code-btn {
       margin-top: 5px;
       padding: 6px 10px;
@@ -39,13 +39,13 @@
       background: var(--accent2);
       border: none;
       cursor: pointer;
-      color: #ffffff; /* Text color set to white */
+      color: #ffffff;
     }
     /* Comments Section Styles */
     .comments-section {
       margin-top: 20px;
       padding: 10px;
-      background: rgba(0,0,0,0.05);
+      background: rgba(0,0,0,0.02);
       border-radius: var(--radius);
     }
     .comments-section h4 {
@@ -113,7 +113,7 @@
 
   <!-- Featured Gallery (Slider) -->
   <section id="featuredGallery">
-    <!-- Gallery Slide 1: Pets Post -->
+    <!-- Gallery Slide 1 -->
     <div class="gallery-slide">
       <img src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.00.50.jpeg" alt="Pet Adventure">
       <div class="overlay">
@@ -121,7 +121,7 @@
         <p>Experience the joyful moments with my pets.</p>
       </div>
     </div>
-    <!-- Gallery Slide 2: Art Exhibition -->
+    <!-- Gallery Slide 2 -->
     <div class="gallery-slide">
       <img src="https://assets.onecompiler.app/438dg3d7r/43d5w35zq/bengi-src-1533201409907.jpg" alt="Art Exhibition">
       <div class="overlay">
@@ -129,7 +129,7 @@
         <p>Explore my latest art pieces from the exhibition.</p>
       </div>
     </div>
-    <!-- Gallery Slide 3: Pancakes Recipe -->
+    <!-- Gallery Slide 3 -->
     <div class="gallery-slide">
       <img src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/pancake.jpg" alt="Pancakes Recipe">
       <div class="overlay">
@@ -137,7 +137,7 @@
         <p>Learn the secrets to fluffy and delicious pancakes.</p>
       </div>
     </div>
-    <!-- Circle Navigation Buttons (Centered) -->
+    <!-- Gallery Navigation Buttons -->
     <div style="text-align:center; margin-top:10px;">
       <button class="gallery-nav" onclick="showSlide(0)"></button>
       <button class="gallery-nav" onclick="showSlide(1)"></button>
@@ -149,7 +149,7 @@
   <div class="main-container">
     <!-- Left Column: All Posts -->
     <div class="posts">
-      <!-- Example Post -->
+      <!-- Post 1: Dev Projects -->
       <article class="post post--color1" data-category="dev">
         <h2>My Latest Web App Project</h2>
         <div class="meta">
@@ -170,21 +170,102 @@
           <button class="copy-code-btn" onclick="copyCode(this, 'devCode')">Copy Code</button>
         </div>
         <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
-
         <!-- Comments Section -->
         <div class="comments-section">
           <h4>Comments</h4>
-          <div class="comments-list">
-            <!-- Existing comments will appear here -->
-          </div>
+          <div class="comments-list"></div>
           <form class="comment-form" onsubmit="addComment(event, this)">
             <input type="text" name="comment" placeholder="Add a comment..." required>
             <button type="submit">Post</button>
           </form>
         </div>
       </article>
-      
-      <!-- Additional posts would follow here... -->
+
+      <!-- Post 2: Art Projects -->
+      <article class="post post--color3" data-category="art">
+        <h2>My Art Exhibition</h2>
+        <div class="meta">
+          <span class="category-label">Art Projects</span>
+          <span>2025-03-27</span>
+        </div>
+        <div class="content">
+          <p>Discover my latest art pieces from the exhibition.</p>
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d5w35zq/bengi-src-1533201409907.jpg" alt="Art Exhibition">
+        </div>
+        <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form" onsubmit="addComment(event, this)">
+            <input type="text" name="comment" placeholder="Add a comment..." required>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </article>
+
+      <!-- Post 3: Recipes -->
+      <article class="post post--color4" data-category="recipes">
+        <h2>Delicious Pancakes Recipe</h2>
+        <div class="meta">
+          <span class="category-label">Recipes</span>
+          <span>2025-03-26</span>
+        </div>
+        <div class="content">
+          <p>Learn how to make delicious, fluffy pancakes with this easy recipe!</p>
+          <h4>Ingredients:</h4>
+          <ul class="ingredients">
+            <li>1 cup flour</li>
+            <li>2 tbsp sugar</li>
+            <li>1 cup milk</li>
+            <li>1 egg</li>
+            <li>1 tsp baking powder</li>
+          </ul>
+          <h4>Instructions:</h4>
+          <ol class="instructions">
+            <li>Mix all ingredients together.</li>
+            <li>Pour batter onto a hot griddle.</li>
+            <li>Cook until bubbles form, then flip.</li>
+            <li>Serve with syrup and fruit.</li>
+          </ol>
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/pancake.jpg" alt="Pancakes">
+        </div>
+        <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form" onsubmit="addComment(event, this)">
+            <input type="text" name="comment" placeholder="Add a comment..." required>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </article>
+
+      <!-- Post 4: Pets -->
+      <article class="post post--color1" data-category="pets">
+        <h2>My Pets' Adventures</h2>
+        <div class="meta">
+          <span class="category-label">Pets</span>
+          <span>2025-03-25</span>
+        </div>
+        <div class="content">
+          <p>Enjoy these cute moments with my pets.</p>
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.00.50.jpeg" alt="Dog Loki">
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.01.39.jpeg" alt="Budgie Toto">
+          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.05.28.jpeg" alt="Loki with Golden">
+        </div>
+        <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
+        <!-- Comments Section -->
+        <div class="comments-section">
+          <h4>Comments</h4>
+          <div class="comments-list"></div>
+          <form class="comment-form" onsubmit="addComment(event, this)">
+            <input type="text" name="comment" placeholder="Add a comment..." required>
+            <button type="submit">Post</button>
+          </form>
+        </div>
+      </article>
     </div>
 
     <!-- Right Column: Sidebar -->
@@ -234,72 +315,5 @@
   </footer>
 
   <script src="script.js"></script>
-  <!-- Inline JS for Like and Comment functionalities -->
-  <script>
-    // Like Button for Posts
-    function incrementLike(btn) {
-      if (btn.disabled) return;
-      const countSpan = btn.querySelector('.like-count');
-      let count = parseInt(countSpan.innerText);
-      count++;
-      countSpan.innerText = count;
-      btn.classList.add('animate-like');
-      btn.disabled = true;
-      setTimeout(() => { btn.classList.remove('animate-like'); }, 200);
-    }
-    
-    // Copy Code Functionality
-    function copyCode(btn, codeId) {
-      const codeElem = document.getElementById(codeId);
-      if (!codeElem) return;
-      navigator.clipboard.writeText(codeElem.innerText).then(() => {
-        btn.innerText = 'Copied!';
-        setTimeout(() => { btn.innerText = 'Copy Code'; }, 1500);
-      });
-    }
-    
-    // Add Comment Functionality
-    function addComment(e, form) {
-      e.preventDefault();
-      const commentText = form.comment.value;
-      const commentDiv = document.createElement('div');
-      commentDiv.className = 'comment';
-      commentDiv.innerHTML = `
-        <p class="comment-text">${commentText}</p>
-        <button class="comment-like-btn" onclick="incrementCommentLike(this)">Like (<span class="comment-like-count">0</span>)</button>
-      `;
-      form.parentElement.querySelector('.comments-list').appendChild(commentDiv);
-      form.reset();
-    }
-    
-    // Like Button for Comments
-    function incrementCommentLike(btn) {
-      if (btn.disabled) return;
-      const countSpan = btn.querySelector('.comment-like-count');
-      let count = parseInt(countSpan.innerText);
-      count++;
-      countSpan.innerText = count;
-      btn.disabled = true;
-    }
-    
-    // Featured Gallery Auto-Slide
-    let slideIndex = 0;
-    function showSlide(index) {
-      const slides = document.querySelectorAll('.gallery-slide');
-      slides.forEach((slide, i) => {
-        slide.style.display = (i === index) ? 'block' : 'none';
-      });
-      slideIndex = index;
-    }
-    function autoSlide() {
-      const slides = document.querySelectorAll('.gallery-slide');
-      slideIndex = (slideIndex + 1) % slides.length;
-      showSlide(slideIndex);
-    }
-    if (document.querySelectorAll('.gallery-slide').length > 0) {
-      showSlide(0);
-      setInterval(autoSlide, 5000);
-    }
-  </script>
 </body>
 </html>
