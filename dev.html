@@ -25,16 +25,7 @@
     </nav>
     <button class="toggle-dark" id="toggleDark">Dark Mode</button>
   </header>
-  /* Updated Copy Code Button Style */
-    .copy-code-btn {
-      margin-top: 5px;
-      padding: 6px 10px;
-      border-radius: var(--radius);
-      background: var(--accent2);
-      border: none;
-      cursor: pointer;
-      color: #ffffff; /* Text color set to white */
-    }
+  
   <div class="main-container">
     <!-- Left Column: Dev Post -->
     <div class="posts">
@@ -55,7 +46,7 @@
   &lt;p&gt;This is a sample code snippet.&lt;/p&gt;
 &lt;/div&gt;
           </pre>
-          <button onclick="copyCode(this, 'devCode')" style="margin-top:5px; padding:6px 10px; border-radius: var(--radius); background: var(--accent2); border:none; cursor:pointer;">Copy Code</button>
+          <button onclick="copyCode(this, 'devCode')" style="margin-top:5px; padding:6px 10px; border-radius: var(--radius); background: var(--accent2); border:none; cursor:pointer; color: white;">Copy Code</button>
         </div>
         <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
       </article>
@@ -109,4 +100,5 @@
 
   <script src="script.js"></script>
 </body>
+  
 </html>
