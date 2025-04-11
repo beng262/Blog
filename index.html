@@ -199,7 +199,7 @@
             </div>
             <div class="content">
               <p>Enjoy the vibrant energy of the city as I take a stroll.</p>
-              <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/20240817_184254.jpg" alt="City Stroll" />
+              <img class="post-img" src="https://via.placeholder.com/800x400?text=City+Stroll" alt="City Stroll" />
             </div>
             <button class="like-btn" onclick="incrementLike(this)"><i class="fa-regular fa-heart"></i> <span class="like-count">0</span></button>
             <button class="fav-btn" onclick="toggleFavorite(this, 'post4')"><i class="fa-solid fa-star"></i></button>
@@ -214,38 +214,11 @@
           </article>
         </div>
 
-        <!-- Sidebar Widgets -->
-        <aside class="sidebar">
-          <div class="widget trending-posts animated-hover">
-            <h3>Trending Posts</h3>
-            <ul>
-              <li><a href="#">Top 10 Web Dev Tools</a></li>
-              <li><a href="#">Daily Routine Hacks</a></li>
-              <li><a href="#">Art Techniques Revealed</a></li>
-              <li><a href="#">Healthy Recipes</a></li>
-              <li><a href="#">Pet Adventures</a></li>
-            </ul>
-          </div>
-          <div class="widget trending-comments animated-hover">
-            <h3>Trending Comments</h3>
-            <ul>
-              <li><a href="#">"Absolutely inspiring!" - Alex</a></li>
-              <li><a href="#">"Love the creativity" - Jamie</a></li>
-              <li><a href="#">"Delicious recipe, must try!" - Sam</a></li>
-            </ul>
-          </div>
-          <div class="widget favorites animated-hover" id="favoritesContainer">
-            <h3>Favorites</h3>
-            <!-- Favorites will be rendered here dynamically -->
-          </div>
-          <div class="widget about-me animated-hover">
-            <h3>About Me</h3>
-            <img src="https://assets.onecompiler.app/438dg3d7r/438dg5wd8/BPic.png" alt="About Me" />
-            <p>I'm a creative soul blending computer engineering with art and design. I love building projects, capturing daily moments, and whipping up delicious recipes.</p>
-          </div>
-        </aside>
-      </div>
-    </main>
+      <!-- Sidebar Section -->
+      <aside class="sidebar">
+        <div id="sidebarContainer"></div>
+      </aside>
+    </div>
 
     <!-- Footer injected via script.js -->
     <div id="footerContainer"></div>
