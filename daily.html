@@ -15,6 +15,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    
   </head>
   <body>
     <!-- Header injected via script.js -->
@@ -58,7 +59,9 @@
       </div>
     </div>
 
-    <main>
+    <!-- Main Container: Posts and Sidebar -->
+    <div class="main-container">
+      <!-- Posts Section -->
       <div class="posts">
         <!-- Daily Post 1 -->
         <article class="post post--color2" data-category="daily" id="post_daily1">
@@ -99,9 +102,7 @@
             <span>2025-04-03</span>
           </div>
           <div class="content">
-            <p>
-              The vibrant pulse of the city captured through the glow of night time.
-            </p>
+            <p>The vibrant pulse of the city captured through the glow of night time.</p>
             <img
               class="post-img"
               src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/20240817_205248.jpg"
@@ -124,7 +125,12 @@
           </div>
         </article>
       </div>
-    </main>
+
+      <!-- Sidebar Section -->
+      <aside class="sidebar">
+        <div id="sidebarContainer"></div>
+      </aside>
+    </div>
 
     <!-- Footer injected via script.js -->
     <div id="footerContainer"></div>
