@@ -1,104 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bengimini - Dev Projects</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="light.css">
-  <link rel="stylesheet" href="dark.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <div class="logo">Bengimini</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">All Posts</a></li>
-        <li><a href="daily.html">Daily Life</a></li>
-        <li><a href="dev.html">Dev Projects</a></li>
-        <li><a href="art.html">Art Projects</a></li>
-        <li><a href="recipes.html">Recipes</a></li>
-        <li><a href="pets.html">Pets</a></li>
-      </ul>
-    </nav>
-    <button class="toggle-dark" id="toggleDark">Dark Mode</button>
-  </header>
-  
-  <div class="main-container">
-    <!-- Left Column: Dev Post -->
-    <div class="posts">
-      <article class="post post--color1" data-category="dev">
-        <h2>My Latest Web App Project</h2>
-        <div class="meta">
-          <span class="category-label">Dev Projects</span>
-          <span>2025-03-29</span>
-        </div>
-        <div class="content">
-          <p>This post details my latest web app project.</p>
-          <img class="post-img" src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WellnessMateHomeScreenPrototype.png" alt="Dev Project">
-          <h4>Code Snippet:</h4>
-          <pre id="devCode" style="background: var(--accent1); padding:10px; border-radius: var(--radius); overflow:auto; font-size:0.9em;">
-&lt;!-- Sample HTML Code --&gt;
-&lt;div class="widget"&gt;
-  &lt;h2&gt;Hello World&lt;/h2&gt;
-  &lt;p&gt;This is a sample code snippet.&lt;/p&gt;
-&lt;/div&gt;
-          </pre>
-          <button onclick="copyCode(this, 'devCode')" style="margin-top:5px; padding:6px 10px; border-radius: var(--radius); background: var(--accent2); border:none; cursor:pointer; color: white;">Copy Code</button>
-        </div>
-        <button class="like-btn" onclick="incrementLike(this)">Like (<span class="like-count">0</span>)</button>
-      </article>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bengimini - Dev Projects</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="light.css" />
+    <link rel="stylesheet" href="dark.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header injected via script.js -->
+    <div id="headerContainer"></div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="loginClose">&times;</span>
+        <h2><i class="fas fa-user"></i> Login</h2>
+        <form id="loginForm">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          <button type="submit" class="modal-btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard Modal -->
+    <div id="adminModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="adminClose">&times;</span>
+        <h2><i class="fas fa-user-shield"></i> Admin Dashboard</h2>
+        <form id="adminPostForm">
+          <label for="postTitle">Post Title:</label>
+          <input type="text" id="postTitle" name="postTitle" required />
+          <label for="postContent">Content:</label>
+          <textarea id="postContent" name="postContent" required></textarea>
+          <label for="postCategory">Category:</label>
+          <select id="postCategory" name="postCategory">
+            <option value="dev" selected>DevProjects</option>
+            <option value="art">ArtProjects</option>
+            <option value="daily">DailyLife</option>
+            <option value="recipes">Recipes</option>
+            <option value="pets">Pets</option>
+          </select>
+          <button type="submit" class="modal-btn">Save Post</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <!-- Left Column: Dev Posts -->
+      <div class="posts">
+        <article class="post post--color1" data-category="dev" id="post_dev1">
+          <h2>My Latest Web App Project</h2>
+          <div class="meta">
+            <span class="category-label">DevProjects</span>
+            <span>2025-03-29</span>
+          </div>
+          <div class="content">
+            <p>This post details my latest web app project.</p>
+            <img
+              class="post-img"
+              src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/WellnessMateHomeScreenPrototype.png"
+              alt="Dev Project"
+            />
+            <h4>Code Snippet:</h4>
+            <pre id="devCode1" class="code-snippet">&lt;!-- Calculator Function Example --&gt;
+function add(a, b) {
+  return a + b;
+}</pre>
+            <button class="copy-code-btn" onclick="copyCode(this, 'devCode1')">
+              Copy Code
+            </button>
+          </div>
+          <button class="like-btn" onclick="incrementLike(this)">
+            <i class="fa-regular fa-heart"></i>
+            <span class="like-count">0</span>
+          </button>
+          <button class="fav-btn" onclick="toggleFavorite(this, 'post_dev1')">
+            <i class="fa-solid fa-star"></i>
+          </button>
+          <div class="comments-section transparent-bg">
+            <h4>Comments</h4>
+            <div class="comments-list"></div>
+            <form class="comment-form" onsubmit="addComment(event, this)">
+              <input
+                type="text"
+                name="comment"
+                placeholder="Add a comment..."
+                required
+              />
+              <button type="submit">Post</button>
+            </form>
+          </div>
+        </article>
+
+        <!-- New Dev Post -->
+        <article class="post post--color1" data-category="dev" id="post_dev2">
+          <h2>Interactive Calculator App</h2>
+          <div class="meta">
+            <span class="category-label">DevProjects</span>
+            <span>2025-04-02</span>
+          </div>
+          <div class="content">
+            <p>
+              A cute interactive calculator with live animations and responsive
+              design.
+            </p>
+            <img
+              class="post-img"
+              src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/poocalc.png"
+              alt="Calculator App"
+            />
+            <h4>Code Snippet:</h4>
+            <pre id="devCode2" class="code-snippet">&lt;!-- Simple Addition Function --&gt;
+function add(a, b) {
+  return a + b;
+}</pre>
+            <button class="copy-code-btn" onclick="copyCode(this, 'devCode2')">
+              Copy Code
+            </button>
+          </div>
+          <button class="like-btn" onclick="incrementLike(this)">
+            <i class="fa-regular fa-heart"></i>
+            <span class="like-count">0</span>
+          </button>
+          <button class="fav-btn" onclick="toggleFavorite(this, 'post_dev2')">
+            <i class="fa-solid fa-star"></i>
+          </button>
+          <div class="comments-section transparent-bg">
+            <h4>Comments</h4>
+            <div class="comments-list"></div>
+            <form class="comment-form" onsubmit="addComment(event, this)">
+              <input
+                type="text"
+                name="comment"
+                placeholder="Add a comment..."
+                required
+              />
+              <button type="submit">Post</button>
+            </form>
+          </div>
+        </article>
+      </div>
+
+      <!-- Sidebar Section -->
+      <aside class="sidebar">
+        <div id="sidebarContainer"></div>
+      </aside>
     </div>
     
-     <!-- Right Column: Sidebar -->
-    <aside class="sidebar">
-      <div class="widget trending-posts">
-        <h3>Trending Posts</h3>
-        <ul>
-          <li><a href="#">Top 10 Web Dev Tools</a></li>
-          <li><a href="#">Daily Routine Hacks</a></li>
-          <li><a href="#">Art Techniques Revealed</a></li>
-          <li><a href="#">Healthy Recipes</a></li>
-          <li><a href="#">Pet Adventures</a></li>
-        </ul>
-      </div>
-      <div class="widget trending-comments">
-        <h3>Trending Comments</h3>
-        <ul>
-          <li><a href="#">"Absolutely inspiring!" - Alex</a></li>
-          <li><a href="#">"Love the creativity" - Jamie</a></li>
-          <li><a href="#">"Delicious recipe, must try!" - Sam</a></li>
-        </ul>
-      </div>
-      <div class="widget about-me">
-        <h3>About Me</h3>
-        <img src="https://assets.onecompiler.app/438dg3d7r/438dg5wd8/BPic.png" alt="About Me" />
-        <p>I'm a creative soul blending computer engineering with art and design. I love building projects, capturing daily moments, and whipping up delicious recipes.</p>
-      </div>
-    </aside>
-  </div>
-
-  <!-- Footer with Social Media Contact Links -->
-  <footer>
-    <p>&copy; 2025 Bengimini. All Rights Reserved.</p>
-    <p>
-      <a href="about.html">About</a> |
-      <a href="contact.html">Contact</a> |
-      <a href="privacy.html">Privacy Policy</a> |
-      <a href="portfolio.html">Portfolio</a>
-    </p>
-    <p>
-      <a href="mailto:bengisu.sarac@bilgiedu.net" title="Email">Email</a> |
-      <a href="https://github.com/beng262" target="_blank" title="GitHub">GitHub</a> |
-      <a href="https://linkedin.com/in/bengisarac14697" target="_blank" title="LinkedIn">LinkedIn</a> |
-      <a href="https://bengisrc.artstation.com" target="_blank" title="ArtStation">ArtStation</a> |
-      <a href="https://www.figma.com/design/cfYIqVr6bICi37Y1FilpQa/Figma-Portfolio?node-id=0-1" target="_blank" title="Figma">Figma</a>
-    </p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-  
+    <!-- Footer injected via script.js -->
+    <div id="footerContainer"></div>
+    <script src="script.js"></script>
+  </body>
 </html>
