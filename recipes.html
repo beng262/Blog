@@ -15,15 +15,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <style>
-      /* Extra spacing for Recipes page */
-      .main-container {
-        margin-top: 160px;
-      }
-      .posts article {
-        padding: 30px;
-      }
-    </style>
   </head>
   <body>
     <!-- Header injected via script.js -->
@@ -48,7 +39,9 @@
     <div id="adminModal" class="modal">
       <div class="modal-content">
         <span class="close" id="adminClose">&times;</span>
-        <h2><i class="fas fa-user-shield"></i> Admin Dashboard</h2>
+        <h2>
+          <i class="fas fa-user-shield"></i> Admin Dashboard
+        </h2>
         <form id="adminPostForm">
           <label for="postTitle">Post Title:</label>
           <input type="text" id="postTitle" name="postTitle" required />
@@ -67,7 +60,9 @@
       </div>
     </div>
 
-    <main>
+    <!-- Main Container: Posts and Sidebar -->
+    <div class="main-container">
+      <!-- Posts Section -->
       <div class="posts">
         <!-- Existing Recipe Post -->
         <article class="post post--color4" data-category="recipes" id="post_rec1">
@@ -77,7 +72,9 @@
             <span>2025-03-26</span>
           </div>
           <div class="content">
-            <p>Learn how to make delicious, fluffy pancakes with this easy recipe!</p>
+            <p>
+              Learn how to make delicious, fluffy pancakes with this easy recipe!
+            </p>
             <h4>Ingredients:</h4>
             <ul class="ingredients">
               <li>1 cup flour</li>
@@ -184,7 +181,12 @@
           </div>
         </article>
       </div>
-    </main>
+      
+      <!-- Sidebar Section -->
+      <aside class="sidebar">
+        <div id="sidebarContainer"></div>
+      </aside>
+    </div>
 
     <!-- Footer injected via script.js -->
     <div id="footerContainer"></div>
