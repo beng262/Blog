@@ -15,12 +15,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+
   </head>
   <body>
     <!-- Header injected via script.js -->
     <div id="headerContainer"></div>
 
-    <!-- Login Modal -->
+    <!-- Login Modal (injected via common code in script.js) -->
     <div id="loginModal" class="modal">
       <div class="modal-content">
         <span class="close" id="loginClose">&times;</span>
@@ -39,7 +40,9 @@
     <div id="adminModal" class="modal">
       <div class="modal-content">
         <span class="close" id="adminClose">&times;</span>
-        <h2><i class="fas fa-user-shield"></i> Admin Dashboard</h2>
+        <h2>
+          <i class="fas fa-user-shield"></i> Admin Dashboard
+        </h2>
         <form id="adminPostForm">
           <label for="postTitle">Post Title:</label>
           <input type="text" id="postTitle" name="postTitle" required />
@@ -58,7 +61,9 @@
       </div>
     </div>
 
-    <main>
+    <!-- Main Container: Posts and Sidebar -->
+    <div class="main-container">
+      <!-- Posts Section -->
       <div class="posts">
         <!-- Existing Art Post -->
         <article class="post post--color3" data-category="art" id="post_art1">
@@ -78,7 +83,6 @@
           <button class="like-btn" onclick="incrementLike(this)">
             <i class="fa-regular fa-heart"></i> <span class="like-count">0</span>
           </button>
-          <!-- Favorite Button placed in upper right using star icon -->
           <button class="fav-btn" onclick="toggleFavorite(this, 'post_art1')">
             <i class="fa-solid fa-star"></i>
           </button>
@@ -86,13 +90,18 @@
             <h4>Comments</h4>
             <div class="comments-list"></div>
             <form class="comment-form" onsubmit="addComment(event, this)">
-              <input type="text" name="comment" placeholder="Add a comment..." required />
+              <input
+                type="text"
+                name="comment"
+                placeholder="Add a comment..."
+                required
+              />
               <button type="submit">Post</button>
             </form>
           </div>
         </article>
 
-        <!-- Additional Art Post using one of your art links -->
+        <!-- Additional Art Post -->
         <article class="post post--color5" data-category="art" id="post_art2">
           <h2>Arcane Style Drawing</h2>
           <div class="meta">
@@ -100,7 +109,9 @@
             <span>2025-04-02</span>
           </div>
           <div class="content">
-            <p>A mesmerizing arcane style drawing with dynamic gradients.</p>
+            <p>
+              A mesmerizing arcane style drawing with dynamic gradients.
+            </p>
             <img
               class="post-img"
               src="https://assets.onecompiler.app/438dg3d7r/43d5w35zq/bengi-src-1000001715%20(1).jpg"
@@ -117,13 +128,18 @@
             <h4>Comments</h4>
             <div class="comments-list"></div>
             <form class="comment-form" onsubmit="addComment(event, this)">
-              <input type="text" name="comment" placeholder="Add a comment..." required />
+              <input
+                type="text"
+                name="comment"
+                placeholder="Add a comment..."
+                required
+              />
               <button type="submit">Post</button>
             </form>
           </div>
         </article>
 
-        <!-- Additional Art Post with placeholder image -->
+        <!-- Additional Art Post with Placeholder Image -->
         <article class="post post--color6" data-category="art" id="post_art3">
           <h2>Mystical Landscape</h2>
           <div class="meta">
@@ -131,11 +147,13 @@
             <span>2025-04-03</span>
           </div>
           <div class="content">
-            <p>Exploring a mystical landscape through vibrant colors and shadows.</p>
+            <p>
+              Exploring a mystical landscape through vibrant colors and shadows.
+            </p>
             <img
               class="post-img"
               src="https://assets.onecompiler.app/438dg3d7r/43d7czpd9/mineee.jpg"
-              alt="Mystical Fall"
+              alt="Mystical Landscape"
             />
           </div>
           <button class="like-btn" onclick="incrementLike(this)">
@@ -148,13 +166,23 @@
             <h4>Comments</h4>
             <div class="comments-list"></div>
             <form class="comment-form" onsubmit="addComment(event, this)">
-              <input type="text" name="comment" placeholder="Add a comment..." required />
+              <input
+                type="text"
+                name="comment"
+                placeholder="Add a comment..."
+                required
+              />
               <button type="submit">Post</button>
             </form>
           </div>
         </article>
       </div>
-    </main>
+
+      <!-- Sidebar Section -->
+      <aside class="sidebar">
+        <div id="sidebarContainer"></div>
+      </aside>
+    </div>
 
     <!-- Footer injected via script.js -->
     <div id="footerContainer"></div>
