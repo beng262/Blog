@@ -41,8 +41,39 @@ document.addEventListener('DOMContentLoaded', function() {
       </p>
     </footer>
   `;
+  // Sidebar Widgets Injection
+const sidebarHTML = `
+ <aside class="sidebar">
+        <div class="widget trending-posts animated-hover">
+          <h3>Trending Posts</h3>
+          <ul>
+            <li><a href="#">Top 10 Web Dev Tools</a></li>
+            <li><a href="#">Daily Routine Hacks</a></li>
+            <li><a href="#">Art Techniques Revealed</a></li>
+            <li><a href="#">Healthy Recipes</a></li>
+            <li><a href="#">Pet Adventures</a></li>
+          </ul>
+        </div>
+        <div class="widget trending-comments animated-hover">
+          <h3>Trending Comments</h3>
+          <ul>
+            <li><a href="#">"Absolutely inspiring!" - Alex</a></li>
+            <li><a href="#">"Love the creativity" - Jamie</a></li>
+            <li><a href="#">"Delicious recipe, must try!" - Sam</a></li>
+          </ul>
+        </div>
+        <div class="widget about-me animated-hover">
+          <h3>About Me</h3>
+          <img src="https://assets.onecompiler.app/438dg3d7r/438dg5wd8/BPic.png" alt="About Me" />
+          <p>I'm a creative soul blending computer engineering with art and design. I love building projects, capturing daily moments, and whipping up delicious recipes.</p>
+        </div>
+      </aside>
+  </div>
+`;
+
   document.getElementById('headerContainer').innerHTML = headerHTML;
   document.getElementById('footerContainer').innerHTML = footerHTML;
+  document.getElementById('sidebarContainer').innerHTML = sidebarHTML;
 
   // Dark Mode Toggle with Icon Swap
   const darkModeToggle = document.getElementById('darkModeToggle');
