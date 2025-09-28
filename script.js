@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <div class="widget about-me animated-hover">
         <h3>About Me</h3>
-        <img src="https://assets.onecompiler.app/438dg3d7r/438dg5wd8/BPic.png" alt="About Me" />
+        <img src="https://uploads.onecompiler.io/438dg3d7r/43d7czpd9/WhatsApp%20Image%202025-03-29%20at%2022.00.49.jpeg" alt="About Me" />
         <p>I'm a creative soul blending computer engineering with art and design. I love building projects, capturing daily moments, and whipping up delicious recipes.</p>
       </div>
     </aside>
